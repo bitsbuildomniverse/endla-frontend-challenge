@@ -1,9 +1,9 @@
-import React from "react";
-import Logo from "./elements/Logo";
-import FooterSocial from "./elements/FooterSocial";
-import FooterNav from "./elements/FooterNav";
+import React from 'react';
+// import Logo from './elements/Logo';
+// import FooterSocial from './elements/FooterSocial';
+// import FooterNav from './elements/FooterNav';
 
-const Footer = ({ }) => {
+const Footer = () => {
   return (
     <footer className="custom-footer">
       <div className="container">

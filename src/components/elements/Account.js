@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Account extends Component {
   constructor() {
@@ -17,24 +17,31 @@ class Account extends Component {
     event.preventDefault();
 
     this.setState({ showMenu: true }, () => {
-      document.addEventListener("click", this.closeMenu);
+      document.addEventListener('click', this.closeMenu);
     });
   }
 
   closeMenu(event) {
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
-        document.removeEventListener("click", this.closeMenu);
+        document.removeEventListener('click', this.closeMenu);
       });
     }
   }
 
   render() {
-    const shading = `user-profile ${this.state.showMenu && "focus"}`;
+    const shading = `user-profile ${this.state.showMenu && 'focus'}`;
 
     return (
-      <div ref={this.node} className="user-fixed-position">
-        <a id="user-account" className={shading} onClick={this.showMenu}>
+      <div
+        ref={this.node}
+        className="user-fixed-position"
+      >
+        <a
+          id="user-account"
+          className={shading}
+          onClick={this.showMenu}
+        >
           <svg
             width="1.5em"
             height="1.5em"
@@ -60,7 +67,10 @@ class Account extends Component {
 
             <ul className="list-group list-group-flush">
               <Link to="/account-settings">Account settings</Link>
-              <a href="/" onClick={() => alert("signed out")}>
+              <a
+                href="/"
+                onClick={() => alert('signed out')}
+              >
                 Sign out
               </a>
             </ul>

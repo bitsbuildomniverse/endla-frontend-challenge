@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const NotFound = ({}) => {
+const NotFound = () => {
   return (
     <div className="jumbotron jumbotron-fluid">
       <div className="container">

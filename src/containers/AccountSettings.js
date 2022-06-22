@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { ListGroup, Modal, Button, Form } from "react-bootstrap";
-import ChangePasswordField from "../components/elements/ChangePasswordField";
+import { ListGroup, Modal, Button, Form } from 'react-bootstrap';
+import ChangePasswordField from '../components/elements/ChangePasswordField';
 
 // FRONTEND ONLY CODING CHALLENGE FILE
 
@@ -16,22 +16,24 @@ class AccountSettings extends Component {
     users: [
       {
         fields: {
-          first_name: "Olive",
-          last_name: "Yew",
-          email: "yew@endla.com",
+          id: '001',
+          first_name: 'Olive',
+          last_name: 'Yew',
+          email: 'yew@endla.com',
         },
       },
       {
         fields: {
-          first_name: "Aida",
-          last_name: "Bugg",
-          email: "bugg@endla.com",
+          id: '002',
+          first_name: 'Aida',
+          last_name: 'Bugg',
+          email: 'bugg@endla.com',
         },
       },
     ],
-    formFirstName: "",
-    formLastName: "",
-    formEmail: "",
+    formFirstName: '',
+    formLastName: '',
+    formEmail: '',
     addUserModalShow: false,
   };
 
@@ -57,23 +59,23 @@ class AccountSettings extends Component {
 
   // state change watch functions for each field
 
-  currentChanged = this.fieldStateChanged("current");
-  passwordChanged = this.fieldStateChanged("password");
+  currentChanged = this.fieldStateChanged('current');
+  passwordChanged = this.fieldStateChanged('password');
 
-  currentChanged = (e) => {
-    if (e.target.value && e.target.value.length > 0) {
-      this.setState({
-        current: true,
-      });
-    } else {
-      this.setState({
-        current: false,
-      });
-    }
-  };
+  // currentChanged = (e) => {
+  //   if (e.target.value && e.target.value.length > 0) {
+  //     this.setState({
+  //       current: true,
+  //     });
+  //   } else {
+  //     this.setState({
+  //       current: false,
+  //     });
+  //   }
+  // };
 
-  passwordChanged = this.fieldStateChanged("password");
-  password2Changed = this.fieldStateChanged("password2");
+  // passwordChanged = this.fieldStateChanged('password');
+  password2Changed = this.fieldStateChanged('password2');
 
   static propTypes = {
     auth: PropTypes.object.isRequired,
@@ -86,25 +88,25 @@ class AccountSettings extends Component {
     this.props.changePassword(
       e.target.current.value,
       e.target.password.value,
-      e.target.password2.value
+      e.target.password2.value,
     );
   };
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    if (e.target.name == "token") {
+    if (e.target.name == 'token') {
       this.setState({ otp: e.target.value });
     }
   };
 
   render() {
     const user = {
-      first_name: "Sam",
-      last_name: "Smith",
-      username: "sam@endla.com",
+      first_name: 'Sam',
+      last_name: 'Smith',
+      username: 'sam@endla.com',
       permission_list: {
-        "permission 1": "enabled",
-        "permission 2": "disabled",
+        'permission 1': 'enabled',
+        'permission 2': 'disabled',
       },
       id: 1,
     };
@@ -118,7 +120,7 @@ class AccountSettings extends Component {
       }
     };
     const removeUser = (e) => {
-      alert("Remove User");
+      alert('Remove User');
       console.log(e);
     };
     const addUser = () => {
@@ -160,7 +162,7 @@ class AccountSettings extends Component {
                     {permission}
                   </div>
                   <div>
-                    {user.permission_list[permission] ? "enabled" : "disabled"}
+                    {user.permission_list[permission] ? 'enabled' : 'disabled'}
                   </div>
                 </div>
               </>
@@ -171,7 +173,10 @@ class AccountSettings extends Component {
             <hr></hr>
             <h5>Change password</h5>
 
-            <form onSubmit={this.onSubmit} className="px-3 pb-2">
+            <form
+              onSubmit={this.onSubmit}
+              className="px-3 pb-2"
+            >
               <div className="form-group">
                 <label className="control-label">Current</label>
                 <input
@@ -201,7 +206,7 @@ class AccountSettings extends Component {
                   </button>
                 </div>
                 {this.props.passwordUpdateSuccess &&
-                  "Password successfully updated."}
+                  'Password successfully updated.'}
               </div>
             </form>
           </div>
@@ -210,7 +215,10 @@ class AccountSettings extends Component {
 
           <div className="col-sm-4">
             <h5>Edit Users</h5>
-            <button className="btn btn-primary" onClick={() => addUser()}>
+            <button
+              className="btn btn-primary"
+              onClick={() => addUser()}
+            >
               Add User
             </button>
             <br />
@@ -219,7 +227,7 @@ class AccountSettings extends Component {
               <ListGroup horizontal="sm">
                 <ListGroup.Item
                   className="col-sm-5 list-user-header"
-                  style={{ borderRadius: "5px 0px 0px 0px" }}
+                  style={{ borderRadius: '5px 0px 0px 0px' }}
                 >
                   First Name
                 </ListGroup.Item>
@@ -231,7 +239,7 @@ class AccountSettings extends Component {
                 </ListGroup.Item>
                 <ListGroup.Item
                   className="col-sm-4 list-user-header"
-                  style={{ borderRadius: "0px 5px 0px 0px" }}
+                  style={{ borderRadius: '0px 5px 0px 0px' }}
                 >
                   Remove
                 </ListGroup.Item>
@@ -240,7 +248,11 @@ class AccountSettings extends Component {
               <p>You have no users. Add a user to get started!</p>
             )}
             {this.state.users.map((user) => (
-              <ListGroup horizontal="sm" className="list-user">
+              <ListGroup
+                key={user.id}
+                horizontal="sm"
+                className="list-user"
+              >
                 <ListGroup.Item className="col-sm-5 list-user-info">
                   {user.fields.first_name}
                 </ListGroup.Item>
@@ -286,7 +298,10 @@ class AccountSettings extends Component {
             </Modal.Header>
             <Modal.Body>
               <Form onSubmit={this.handleFormSubmit}>
-                <Form.Group className="mb-3" controlId="formUsername">
+                <Form.Group
+                  className="mb-3"
+                  controlId="formUsername"
+                >
                   <Form.Label>First Name</Form.Label>
                   <Form.Control
                     type="firstname"
@@ -296,7 +311,10 @@ class AccountSettings extends Component {
                     required
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formUsername">
+                <Form.Group
+                  className="mb-3"
+                  controlId="formUsername"
+                >
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control
                     type="lastname"
@@ -306,7 +324,10 @@ class AccountSettings extends Component {
                     required
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formEmail">
+                <Form.Group
+                  className="mb-3"
+                  controlId="formEmail"
+                >
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
@@ -322,7 +343,10 @@ class AccountSettings extends Component {
                       {this.props.registerUserError.message}
                     </p>
                   )} */}
-                <Button variant="primary" type="submit">
+                <Button
+                  variant="primary"
+                  type="submit"
+                >
                   Submit
                 </Button>
               </Form>

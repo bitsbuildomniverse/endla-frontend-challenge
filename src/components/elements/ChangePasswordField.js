@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
-import zxcvbn from "zxcvbn";
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import zxcvbn from 'zxcvbn';
 
-import FormField from "./FormField";
+import FormField from './FormField';
 
 class ChangePasswordField extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class ChangePasswordField extends Component {
     // minStrength must be a a number between 0 - 4
 
     this.minStrength =
-      typeof minStrength === "number"
+      typeof minStrength === 'number'
         ? Math.max(Math.min(minStrength, 4), 0)
         : 3;
 
@@ -21,10 +21,10 @@ class ChangePasswordField extends Component {
     // thresholdLength must be a minimum value of 7
 
     this.thresholdLength =
-      typeof thresholdLength === "number" ? Math.max(thresholdLength, 7) : 7;
+      typeof thresholdLength === 'number' ? Math.max(thresholdLength, 7) : 7;
 
     // initialize internal component state
-    this.state = { password: "", strength: 0, password2: null, match: false };
+    this.state = { password: '', strength: 0, password2: null, match: false };
   }
 
   stateChanged = (state) => {
@@ -35,7 +35,7 @@ class ChangePasswordField extends Component {
         password: state.value,
         strength: zxcvbn(state.value).score,
       },
-      () => this.props.onPasswordChanged(state)
+      () => this.props.onPasswordChanged(state),
     );
   };
 
@@ -47,24 +47,24 @@ class ChangePasswordField extends Component {
         password2: state.value,
         match: state.value === this.state.password,
       },
-      () => this.props.onPassword2Changed(state)
+      () => this.props.onPassword2Changed(state),
     );
   };
 
   validatePasswordStrong = (value) => {
     // ensure password is long enough
     if (value.length <= this.thresholdLength)
-      throw new Error("Password is short");
+      throw new Error('Password is short');
 
     // ensure password is strong enough using the zxcvbn library
     if (zxcvbn(value).score < this.minStrength)
-      throw new Error("Password is weak");
+      throw new Error('Password is weak');
   };
 
   validatePasswordMatch = (value) => {
     // ensure passwords match
     if (value !== this.state.password)
-      throw new Error("Passwords do not match");
+      throw new Error('Passwords do not match');
   };
 
   render() {
@@ -77,22 +77,22 @@ class ChangePasswordField extends Component {
 
     // dynamically set the password length counter class
     const counterClass = [
-      "badge badge-pill",
+      'badge badge-pill',
       passwordLong
         ? passwordStrong
-          ? "badge-success"
-          : "badge-warning"
-        : "badge-danger",
+          ? 'badge-success'
+          : 'badge-warning'
+        : 'badge-danger',
     ]
-      .join(" ")
+      .join(' ')
       .trim();
 
     // password strength meter is only visible when password is not empty
     const strengthClass = [
-      "strength-meter mt-2",
-      passwordLength > 0 ? "visible" : "invisible",
+      'strength-meter mt-2',
+      passwordLength > 0 ? 'visible' : 'invisible',
     ]
-      .join(" ")
+      .join(' ')
       .trim();
 
     return (
@@ -129,7 +129,7 @@ class ChangePasswordField extends Component {
                 ? passwordLong
                   ? `${this.thresholdLength}+`
                   : passwordLength
-                : ""}
+                : ''}
             </span>
           </div>
         </div>

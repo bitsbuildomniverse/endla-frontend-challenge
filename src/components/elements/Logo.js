@@ -1,10 +1,14 @@
-import React from "react";
+import React from 'react';
 
-const Logo = ({ }) => {
+const Logo = () => {
   return (
     <div>
       <a href="https://endla.com">
-        <img src="/logo.png" alt="Endla Logo" width={150} />
+        <img
+          src="/logo.png"
+          alt="Endla Logo"
+          width={150}
+        />
       </a>
     </div>
   );

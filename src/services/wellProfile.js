@@ -1,11 +1,11 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { HTTP_PATH } from "../settings/apihost";
+import { HTTP_PATH } from '../settings/apihost';
 
 export const wellProfileApi = createApi({
-  reducerPath: "wellProfile",
+  reducerPath: 'wellProfile',
   baseQuery: fetchBaseQuery({
-    baseUrl: HTTP_PATH + "/api/",
+    baseUrl: HTTP_PATH + '/api/',
   }),
   endpoints: (builder) => ({
     getWellProfileData: builder.query({

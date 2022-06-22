@@ -157,7 +157,7 @@ button.btn {
   // Dynamically create the gap effect
   &:before,
   &:after {
-    content: "";
+    content: '';
     height: inherit;
     background: transparent;
     display: block;
@@ -190,7 +190,7 @@ button.btn {
 
   // Dynamically generate strength meter color styles
   @for $i from 1 through 5 {
-    &[data-strength="#{$i - 1}"] {
+    &[data-strength='#{$i - 1}'] {
       width: (20% * $i);
       background: nth($strength-colors, $i);
     }
