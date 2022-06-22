@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, Button } from '@mui/material';
-import PasswordField from './components/PasswordField';
+import PasswordField from '../../../components/PasswordField';
 
 const initialValue = {
   value: '',
