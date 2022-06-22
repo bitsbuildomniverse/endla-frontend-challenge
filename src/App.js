@@ -11,7 +11,7 @@ import { wellProfileApi } from './services/wellProfile';
 import BaseRouter from './routes';
 import Meta from './components/Meta';
 
-import { META_DATA } from './constants/index';
+import { APP } from './constants/index';
 
 import './App.scss';
 
@@ -25,15 +25,15 @@ const store = createStore(
 );
 
 setupListeners(store.dispatch);
+
 const App = () => {
-  console.error(META_DATA.SITE_TITLE);
   return (
     <>
       <Meta
-        title={META_DATA.SITE_TITLE}
-        preview="Endla develops state-of-the-art purpose specific engineering tools with performance based contracts that provide engineering businesses with a highly attractive return on spend digital tool projects."
-        image="/images/spaced-logo.png"
-        url="/"
+        title={APP.TITLE}
+        preview={APP.META.DESCRIPTION}
+        image={APP.URL + APP.META.IMAGE}
+        url={APP.URL}
       />
       <Provider store={store}>
         <Router>
