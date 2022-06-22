@@ -13,7 +13,7 @@ import Meta from './components/Meta';
 
 import { APP } from './constants/index';
 
-import './App.scss';
+// import './App.scss';
 
 // Redux
 const initialState = {};
