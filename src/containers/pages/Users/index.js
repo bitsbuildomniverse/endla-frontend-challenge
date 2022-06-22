@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { ListGroup, Modal, Button, Form } from 'react-bootstrap';
-import ChangePasswordField from '../components/elements/ChangePasswordField';
+import ChangePasswordField from '../../../components/ChangePasswordField';
 
 // FRONTEND ONLY CODING CHALLENGE FILE
 
-class AccountSettings extends Component {
+class Users extends Component {
   state = {
     current: false,
     password: false,
@@ -359,4 +359,4 @@ class AccountSettings extends Component {
   }
 }
 
-export default AccountSettings;
+export default Users;

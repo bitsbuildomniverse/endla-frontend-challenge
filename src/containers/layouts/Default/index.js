@@ -2,10 +2,8 @@ import React from 'react';
 
 import { Helmet } from 'react-helmet';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
-export const siteTitle = 'endla';
+import Header from './Header';
+import Footer from './Footer';
 
 const LayoutDefault = ({ children }) => (
   <>
@@ -15,8 +13,8 @@ const LayoutDefault = ({ children }) => (
         href="/favicon.svg"
       />
     </Helmet>
-    <Header navPosition="right" />
 
+    <Header navPosition="right" />
     <main className="site-content">{children}</main>
     <Footer />
   </>

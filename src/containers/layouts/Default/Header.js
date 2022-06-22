@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Logo from './elements/Logo';
-import Account from './elements/Account';
+import Logo from '../../../components/Logo';
+import Account from '../../../components/Account';
 
 const Header = () => {
   return (

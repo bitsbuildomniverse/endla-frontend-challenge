@@ -1,22 +1,26 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import LayoutDefault from './layouts/LayoutDefault';
+// Layouts
+import DefaultLayout from './containers/layouts/Default';
 
-import NotFound from './containers/NotFound';
-import AccountSettings from './containers/AccountSettings';
+// User-facing components
+import Users from './containers/pages/Users';
+
+// Non user-facing components
+import NotFound from './containers/pages/NotFound';
 
 const BaseRouter = () => (
   <Switch>
-    <LayoutDefault>
+    <DefaultLayout>
       <Switch>
         <Route
           path="/"
-          component={AccountSettings}
+          component={Users}
         />
         <Route component={NotFound} />
       </Switch>
-    </LayoutDefault>
+    </DefaultLayout>
   </Switch>
 );
 
