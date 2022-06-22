@@ -54,8 +54,7 @@ class Users extends Component {
     // Set redux store 'registerUserSuccess' to be false //
   };
 
-  fieldStateChanged = (field) => (state) =>
-    this.setState({ [field]: state.errors.length === 0 });
+  fieldStateChanged = (field) => (state) => this.setState({ [field]: state.errors.length === 0 });
 
   // state change watch functions for each field
 
@@ -85,11 +84,7 @@ class Users extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.changePassword(
-      e.target.current.value,
-      e.target.password.value,
-      e.target.password2.value,
-    );
+    this.props.changePassword(e.target.current.value, e.target.password.value, e.target.password2.value);
   };
 
   onChange = (e) => {
@@ -132,38 +127,18 @@ class Users extends Component {
         <div className="container p-3">
           <h1 className="display-4">Account Settings</h1>
           <p className="lead">
-            We always appreciate feedback - if you have chance leave us some, it
-            helps us continue to improve.
+            We always appreciate feedback - if you have chance leave us some, it helps us continue to improve.
           </p>
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-2 col-4 font-weight-bold">Name</div>
-            <div>
-              {user.first_name} {user.last_name}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-2 col-4 font-weight-bold">Email</div>
-            <div>{user.email}</div>
-          </div>
-          <div className="row">
-            <div className="col-md-2 col-4 font-weight-bold">Username</div>
-            <div>{user.username}</div>
-          </div>
-
+        <div>
           <div>
             <hr></hr>
             <h5>Features</h5>
             {Object.keys(user.permission_list).map((permission) => (
               <>
                 <div className="row">
-                  <div className="col-md-2 col-4 font-weight-bold">
-                    {permission}
-                  </div>
-                  <div>
-                    {user.permission_list[permission] ? 'enabled' : 'disabled'}
-                  </div>
+                  <div className="col-md-2 col-4 font-weight-bold">{permission}</div>
+                  <div>{user.permission_list[permission] ? 'enabled' : 'disabled'}</div>
                 </div>
               </>
             ))}
@@ -205,8 +180,7 @@ class Users extends Component {
                     Save Changes
                   </button>
                 </div>
-                {this.props.passwordUpdateSuccess &&
-                  'Password successfully updated.'}
+                {this.props.passwordUpdateSuccess && 'Password successfully updated.'}
               </div>
             </form>
           </div>
@@ -231,12 +205,8 @@ class Users extends Component {
                 >
                   First Name
                 </ListGroup.Item>
-                <ListGroup.Item className="col-sm-8 list-user-header">
-                  Last Name
-                </ListGroup.Item>
-                <ListGroup.Item className="col-sm-12 list-user-header">
-                  Email
-                </ListGroup.Item>
+                <ListGroup.Item className="col-sm-8 list-user-header">Last Name</ListGroup.Item>
+                <ListGroup.Item className="col-sm-12 list-user-header">Email</ListGroup.Item>
                 <ListGroup.Item
                   className="col-sm-4 list-user-header"
                   style={{ borderRadius: '0px 5px 0px 0px' }}
@@ -253,15 +223,9 @@ class Users extends Component {
                 horizontal="sm"
                 className="list-user"
               >
-                <ListGroup.Item className="col-sm-5 list-user-info">
-                  {user.fields.first_name}
-                </ListGroup.Item>
-                <ListGroup.Item className="col-sm-8 list-user-info">
-                  {user.fields.last_name}
-                </ListGroup.Item>
-                <ListGroup.Item className="col-sm-12 list-user-info">
-                  {user.fields.email}
-                </ListGroup.Item>
+                <ListGroup.Item className="col-sm-5 list-user-info">{user.fields.first_name}</ListGroup.Item>
+                <ListGroup.Item className="col-sm-8 list-user-info">{user.fields.last_name}</ListGroup.Item>
+                <ListGroup.Item className="col-sm-12 list-user-info">{user.fields.email}</ListGroup.Item>
                 <ListGroup.Item
                   action
                   disabled // temporarily disable until functionality is added

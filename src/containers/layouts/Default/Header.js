@@ -14,10 +14,7 @@ import {
 } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 
-import {
-  NAVBAR_ITEMS,
-  USER_SETTING_ITEMS,
-} from '../../../constants/headerMenuItems';
+import { NAVBAR_ITEMS, USER_SETTING_ITEMS } from '../../../constants/headerMenuItems';
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -163,7 +160,7 @@ const Header = () => {
                 sx={{ p: 0 }}
               >
                 <Avatar
-                  alt="Olive Yew"
+                  alt="Sam Smith"
                   src="avatar.jpg"
                 />
               </IconButton>

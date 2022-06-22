@@ -9,12 +9,7 @@ class FormField extends Component {
     e.preventDefault();
 
     // destructure props - assign default dummy functions to validator and onStateChanged props
-    const {
-      label,
-      required = false,
-      validator = (f) => f,
-      onStateChanged = (f) => f,
-    } = this.props;
+    const { label, required = false, validator = (f) => f, onStateChanged = (f) => f } = this.props;
 
     const value = e.target.value;
     const isEmpty = value.length === 0;
@@ -47,12 +42,7 @@ class FormField extends Component {
     const { type, label, fieldId, placeholder, children } = this.props;
 
     const hasErrors = errors.length > 0;
-    const controlClass = [
-      'form-control',
-      dirty ? (hasErrors ? 'is-invalid' : 'is-valid') : '',
-    ]
-      .join(' ')
-      .trim();
+    const controlClass = ['form-control', dirty ? (hasErrors ? 'is-invalid' : 'is-valid') : ''].join(' ').trim();
 
     return (
       <Fragment>
@@ -65,11 +55,7 @@ class FormField extends Component {
               {label}
             </label>
             {/** Render the first error if there are any errors **/}
-            {hasErrors && (
-              <div className="error form-hint font-weight-bold text-right m-0 mb-2">
-                {errors[0]}
-              </div>
-            )}
+            {hasErrors && <div className="error form-hint font-weight-bold text-right m-0 mb-2">{errors[0]}</div>}
           </div>
           {/** Render the children nodes passed to component **/}
           {children}

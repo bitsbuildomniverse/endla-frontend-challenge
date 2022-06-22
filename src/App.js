@@ -18,11 +18,7 @@ import { APP } from './constants/index';
 // Redux
 const initialState = {};
 const middleware = [thunk, wellProfileApi.middleware];
-const store = createStore(
-  reducer,
-  initialState,
-  applyMiddleware(...middleware),
-);
+const store = createStore(reducer, initialState, applyMiddleware(...middleware));
 
 setupListeners(store.dispatch);
 
