@@ -1,6 +1,9 @@
 # Endla Frontend Challenge
 A simple app to manage accounts of endla users
 
+## Plan of Attack
+[Click here to see my **Plan of Attack**](./plan-of-attack.md)
+
 ## Requirements
 - Node.js >= 16.14.0
 
